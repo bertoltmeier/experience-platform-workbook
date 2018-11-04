@@ -123,13 +123,15 @@ Using Adobe AdminConsole to manage an Experience Platform instance, manage Produ
    Email Address []:
    ```
 
-   After entering the information two files will be generated: `certificate_pub.crt` and `private.key`.
+   After entering the information two files will be generated: `certificate_pub.crt` and `private.key`. These files can be found in the same directory that you ran the `openssl` command from.
 
    Note `certificate_pub.crt` will expire in 365 days. You can make the period longer by changing the value of days in the openssl command above but rotating credentials periodically is a good security practice.
 
    The `certificate_pub.crt` certificate will later be uploaded to the Adobe IO Console for when you create an API key for access to any Adobe I/O API.
 
    Your private key file named `private.key` will be used later to sign your JWT token.
+
+   > Note: Don't close this terminal window as you will need it later.
 
 1. Navigate to the [Adobe I/O Console](https://console.adobe.io/) and sign in with your Adobe ID.
 1. From this page we want to create a New Integration.
@@ -194,15 +196,35 @@ Using Adobe AdminConsole to manage an Experience Platform instance, manage Produ
 
    - clientID
    - clientSecret
-   - IMSOrg
-   - techacct
+   - OrgID
+   - TechAcctID
 
    that you generated when you created your **new integration**.
 
    Also fill out the `ldap` field with your user id so you'll be able to uniquely identify the datasets you create.
 
 1. Copy the contents of the `private.key` and use it as the value for `secret`.
+
+   **For MacOS & Linux platform**
+
+   From the same terminal you ran `openssl`, execute the following command:
+
+   ```shell
+   pbcopy < private.key
+   ```
+
+   **For Windows Platform**
+
+   From the same terminal you ran `openssl`, execute the following command:
+
+   ```shell
+   notepad private.key
+   ```
+
+   Copy the entire key to the keyboard, including the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` lines.
+
 1. Click `Update` and close the `Manage Environments` dialog.
+
 1. Now make sure you select the `Adobe Experience Platform - Environment` from the environments drop down at the top right of POSTMan.
 
    ![](/images/chapter-2/postman_experience_platform_env.png)

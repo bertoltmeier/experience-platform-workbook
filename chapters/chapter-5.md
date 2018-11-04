@@ -75,6 +75,8 @@ This will help with several aspects of our customer loyalty program, including t
 
 Now that we've created a segment using JSON through the API, let's show how we can visually build one - helpful for those who may not want to write JSON, or simply want a web interface to do everything.
 
+*NOTE: Unfortunately, current limitations on provisioning prohibits us from letting everyone access this feature. As such, we will do a live demo of the following steps, so follow along for your reference.*
+
 1.  Head back to the main [Platform UI landing page](https://platform.adobe.com) and click on "Unified Profile", and then click the "Segmentation" tab. Here you'll see the "All Males" segement that we defined in the API already here.
 
 
